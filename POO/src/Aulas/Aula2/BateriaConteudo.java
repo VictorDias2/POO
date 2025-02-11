@@ -1,4 +1,4 @@
-package Aulas.Atividade2;
+package Aulas.Aula2;
 
 public class BateriaConteudo {
     public static void main(String[] args){

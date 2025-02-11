@@ -1,4 +1,4 @@
-package Aulas.Atividade5;
+package Aulas.Aula05;
 import java.util.Scanner;
 
 public class ContaBanco {
@@ -11,11 +11,11 @@ public class ContaBanco {
     private boolean status;
 
     public ContaBanco(int numConta, String tipo, String dono) {
-        this.numConta = numConta;
-        this.tipo = tipo;
-        this.dono = dono;
-        this.saldo = 0;
-        this.status = false;
+        this.setNumConta(numConta);
+        this.setTipo(tipo);
+        this.setDono(dono);
+        this.setSaldo(0);
+        this.setStatus(false);
     }
 
     public void retorne(){
@@ -44,28 +44,27 @@ public class ContaBanco {
         if (this.status == true) {
             System.out.println("Sua conta já está aberta Sr." + getDono() + "!");
         } else {
-            this.status = true;
+            setStatus(true);
             if (tipo.equals("cc")) {
-                this.saldo += 50;
+                setSaldo(+50);
                 System.out.println("Conta Corrente aberta com sucesso Sr." + getDono() + "!");
 
             } else if (tipo.equals("cp")) {
-                this.saldo += 150;
+                setSaldo(+150);
                 System.out.println("Conta poupança aberta com sucesso Sr." + getDono() + "!");
             }
 
         }
     }
 
-    public void fecharConta(){
-        if(this.status == false){
+    public void fecharConta() {
+        if (this.status == false) {
             System.out.println("Sua conta já está fechada Sr." + getDono() + "!");
-        }
-        else {
-            if (saldo > 0 || saldo < 0) {
-                System.out.println("Não é possível fechar a conta com saldo positivo ou negativo Sr." + getDono() + "!");
+        } else {
+            if (getSaldo() > 0 || getSaldo() < 0) {
+                System.out.println("Sr." + getDono() + " você ainda tem um saldo total de " + getSaldo() + " reais. Portanto, Não é possível fechar a conta com saldo positivo ou negativo.");
             } else {
-                this.status = false;
+                setStatus(false);
                 System.out.println("Conta fechada com sucesso Sr." + getDono() + "!");
             }
 
@@ -97,11 +96,11 @@ public class ContaBanco {
         else{
             System.out.println("Quando deseja sacar?");
             int saque = entrada.nextInt();
-            if(saque > saldo){
-                System.out.println("Não é possível sacar o valor de R$" + saque + ". Seu saldo é de R$" + this.saldo);
+            if(saque > getSaldo()){
+                System.out.println("Não é possível sacar o valor de R$" + saque + ". Seu saldo é de R$" + getSaldo());
             }
             else{
-                this.saldo -= saque;
+                saldo -= saque;
                 System.out.println("Saque realizado com sucesso Sr." + getDono() + "!");
             }
 
@@ -117,7 +116,11 @@ public class ContaBanco {
             } else if (this.tipo.equals("cp")) {
                 saldo -= 20;
             }
+
             System.out.println("Pagamento efetuado com sucesso Sr." + getDono() + "!");
+            if(getSaldo() < 0){
+                System.out.println("Devido ao pegamento da mensalidade sua conta ficou negativada, com o saldo total de " + getSaldo() + " reais");
+            }
         }
 
     }

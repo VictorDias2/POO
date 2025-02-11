@@ -1,4 +1,4 @@
-package Aulas.Atividade2;
+package Aulas.Aula2;
 import java.util.Date;
 
 public class Compromisso {
