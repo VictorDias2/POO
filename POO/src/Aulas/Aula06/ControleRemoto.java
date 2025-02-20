@@ -46,15 +46,15 @@ public class ControleRemoto {
         }
 
         System.out.print("Volume: ");
-        for (int v = 10; v <= getVolume(); v += 10) {
+        for (int v = 10; v < getVolume(); v += 10) {
             System.out.print("| ");
         }
 
         if (this.tocando == true){
-            System.out.println("Está tocando!");
+            System.out.println("\nEstá tocando!");
         }
         else{
-            System.out.println("Está pausado!");
+            System.out.println("\nEstá pausado!");
         }
     }
 
