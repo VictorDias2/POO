@@ -7,17 +7,17 @@ public class Ufc {
     private float altura;
     private float peso;
     private String categoria;
-    private int vitorias, derrotas, empates ;
+    private int vitorias, derrotas, empates, score ;
 
     public Ufc(String nom, String nac, int ida, float alt, float peso, int vit, int der, int emp) {
-        nome = nom;
-        nacionalidade = nac;
-        idade = ida;
-        altura = alt;
+        this.nome = nom;
+        this.nacionalidade = nac;
+        this.idade = ida;
+        this.altura = alt;
         setPeso(peso);
-        vitorias = vit;
-        derrotas = der;
-        empates = emp;
+        this.vitorias = vit;
+        this.derrotas = der;
+        this.empates = emp;
     }
 
     public void apresentar(){
@@ -147,5 +147,13 @@ public class Ufc {
 
     public void setDerrotas(int derrotas) {
         this.derrotas = derrotas;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }
